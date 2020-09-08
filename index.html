@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
     <!-- Page Title -->
     <title>T&C Professional Juice</title>
 
@@ -23,6 +22,7 @@
     <link rel="stylesheet" href="assets/css/owl-carousel.min.css" />
     <link rel="stylesheet" href="assets/css/jquery.datetimepicker.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="manifest" href="manifest.json">
   </head>
   <body>
     <!-- Preloader Starts -->
@@ -649,6 +649,11 @@
       </div>
     </footer>
     <!-- Footer Area End -->
+    <!-- Add to Home screen Button Start-->
+    <section id="prompt" class="banner">
+      <button id="prompt-btn">Install app</button>
+    </section>
+    <!-- Add to Home screen Button End -->
 
     <!-- Javascript -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
@@ -659,5 +664,14 @@
     <script src="assets/js/vendor/jquery.nice-select.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/db.js"></script>
+    <script src="assets/js/app.js"></script>
+    <style>
+      .banner {
+        align-content: center;
+        display: none;
+        justify-content: center;
+        width: 100%;
+      }
+    </style>
   </body>
 </html>

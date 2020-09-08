@@ -266,3 +266,15 @@
     $(".preloader").fadeOut(500);
   });
 })(jQuery);
+
+window.addEventListener('offline', function () {
+	if (confirm("You are offline, may I redirect you to our menu?")) {
+    window.location.href = "./menu.html";
+  }
+});
+
+window.addEventListener("online", function (event) {
+  if (confirm("You are now online, may I redirect you to our main page?")) {
+    window.location.href = "./index.html";
+  }
+})

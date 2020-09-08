@@ -19,7 +19,7 @@ if (!window.indexedDB) {
   );
 }
 
-const request = window.indexedDB.open("funfood", 2);
+const request = window.indexedDB.open("funfood");
 
 request.onerror = function (event) {
   console.log("No database found.");
@@ -41,9 +41,6 @@ request.onupgradeneeded = function (event) {
   const db = event.target.result;
   const transaction = event.target.transaction;
   console.log("loading...");
-  if (event.oldVersion < 2) {
-    db.deleteObjectStore("juices");
-  }
   const objectStore = db.createObjectStore("juices", { keyPath: "id" });
   const juiceObjectStore = transaction.objectStore("juices", "readwrite");
 
