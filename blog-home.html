@@ -330,7 +330,9 @@
                 else {
                     $(this).attr("src", "assets/images/blog/main-blog/star1.png");
                 }
-                localStorage.favouriteA = $(this).attr("src");
+                if(typeof (Storage) !== "undefined") {
+                    localStorage.favouriteA = $(this).attr("src");
+                }
             });
             $("#starB").click(function () {
                 if ($(this).attr("src") == "assets/images/blog/main-blog/star1.png") {
@@ -339,7 +341,9 @@
                 else {
                     $(this).attr("src", "assets/images/blog/main-blog/star1.png");
                 }
-                localStorage.favouriteB = $(this).attr("src");
+                if(typeof (Storage) !== "undefined") {
+                    localStorage.favouriteB = $(this).attr("src");
+                }
             });
             $("#starC").click(function () {
                 if ($(this).attr("src") == "assets/images/blog/main-blog/star1.png") {
@@ -348,7 +352,9 @@
                 else {
                     $(this).attr("src", "assets/images/blog/main-blog/star1.png");
                 }
-                localStorage.favouriteC = $(this).attr("src");
+                if(typeof (Storage) !== "undefined") {
+                    localStorage.favouriteC = $(this).attr("src");
+                }
             });
             $("#starD").click(function () {
                 if ($(this).attr("src") == "assets/images/blog/main-blog/star1.png") {
@@ -357,7 +363,9 @@
                 else {
                     $(this).attr("src", "assets/images/blog/main-blog/star1.png");
                 }
-                localStorage.favouriteD = $(this).attr("src");
+                if(typeof (Storage) !== "undefined") {
+                    localStorage.favouriteD = $(this).attr("src");
+                }
             });
             $("#starE").click(function () {
                 if ($(this).attr("src") == "assets/images/blog/main-blog/star1.png") {
@@ -366,7 +374,9 @@
                 else {
                     $(this).attr("src", "assets/images/blog/main-blog/star1.png");
                 }
-                localStorage.favouriteE = $(this).attr("src");
+                if(typeof (Storage) !== "undefined") {
+                    localStorage.favouriteE = $(this).attr("src");
+                }
             });
             $("#starF").click(function () {
                 if ($(this).attr("src") == "assets/images/blog/main-blog/star1.png") {
@@ -375,7 +385,9 @@
                 else {
                     $(this).attr("src", "assets/images/blog/main-blog/star1.png");
                 }
-                localStorage.favouriteF = $(this).attr("src");
+                if(typeof (Storage) !== "undefined") {
+                    localStorage.favouriteF = $(this).attr("src");
+                }
             });
         });
     </script>
