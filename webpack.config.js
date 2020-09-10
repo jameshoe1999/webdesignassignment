@@ -2,10 +2,13 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/main.js",
+  entry: {
+    index_bundle: "./src/main.js",
+    weather_bundle: "./src/weather.jsx"
+  },
   output: {
     path: path.join(__dirname, "/assets/js"),
-    filename: "index_bundle.js",
+    filename: "[name].js",
   },
   devServer: {
     inline: true,
@@ -21,6 +24,17 @@ module.exports = {
           presets: ["es2015", "react"],
         },
       },
+      {
+        test: /\.css$/i,
+        loader: "css-loader"
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: "file-loader",
+        options: {
+          name: "[path][name].[ext]"
+        }
+      }
     ],
   },
   plugins: [

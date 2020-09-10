@@ -13,7 +13,7 @@ if ('serviceWorker' in navigator) {
 
 let deferredPrompt;
 const promptDialog = document.querySelector("#prompt");
-const installBtn = document.querySelector("#prompt-btn");
+const installBtn = document.querySelector("#addToHomeScreen");
 
 window.addEventListener("beforeinstallprompt", e => {
 	// Prevent Chrome 67 and earlier from automatically showing the prompt
@@ -22,8 +22,13 @@ window.addEventListener("beforeinstallprompt", e => {
 	deferredPrompt = e;
 	// Update UI to notify the user they can add to home screen
 	promptDialog.style.display = "block";
+  
+  document.querySelector("#noThanks")
+    .addEventListener("click", function (event) {
+      promptDialog.style.display = "none";
+    });
 
-	installBtn.addEventListener("click", e => {
+	installBtn.addEventListener("click", function (event) {
 		// hide our user interface that shows our A2HS button
 		promptDialog.style.display = "none";
 		// Show the prompt

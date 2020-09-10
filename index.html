@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="assets/css/owl-carousel.min.css" />
   <link rel="stylesheet" href="assets/css/jquery.datetimepicker.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/weather.css" />
   <link rel="manifest" href="manifest.json">
 </head>
 
@@ -546,9 +547,19 @@
   <!-- Footer Area End -->
   <!-- Add to Home screen Button Start-->
   <section id="prompt" class="banner">
-    <button id="prompt-btn">Install app</button>
+    <div class="banner-container shadow">
+      <h5 class="text-center">Are you interested in our webpages?</h5>
+      <div class="button">
+        <a id="noThanks" class="btn card-link mx-2">No Thanks</a>
+        <button id="addToHomeScreen" class="btn btn-primary shadow">Add to Homescreen</button>
+      </div>
+    </div>
   </section>
   <!-- Add to Home screen Button End -->
+
+  <!-- Weather Floating Card start -->
+  <div id="weather" class="active"></div>
+  <!-- Weather Floating Card end -->
 
   <!-- Javascript -->
   <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
@@ -557,17 +568,12 @@
   <script src="assets/js/vendor/owl-carousel.min.js"></script>
   <script src="assets/js/vendor/jquery.datetimepicker.full.min.js"></script>
   <script src="assets/js/vendor/jquery.nice-select.min.js"></script>
+  <script src="assets/js/all.min.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/db.js"></script>
   <script src="assets/js/app.js"></script>
-  <style>
-    .banner {
-      align-content: center;
-      display: none;
-      justify-content: center;
-      width: 100%;
-    }
-  </style>
+  <script src="assets/js/weather.js"></script>
+  <script src="assets/js/weather_bundle.js"></script>
 </body>
 
 </html>

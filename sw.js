@@ -1,17 +1,15 @@
 // Set a name for the current cache
-var cacheName = "offline-cache-v1.0";
+var cacheName = "offline-cache-v1.01";
 
 // Default files to always cache
 var CACHE_FILES = [
   "/",
   "./menu.html",
-  "./index.html",
   "assets/css/animate-3.7.0.css",
   "assets/css/font-awesome-4.7.0.min.css",
   "assets/css/bootstrap-4.1.3.min.css",
   "assets/css/owl-carousel.min.css",
   "assets/css/jquery.datetimepicker.min.css",
-  "assets/css/style.css",
   "assets/js/vendor/jquery-2.2.4.min.js",
   "assets/js/vendor/bootstrap-4.1.3.min.js",
   "assets/js/vendor/wow.min.js",

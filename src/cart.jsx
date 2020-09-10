@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Swal from "sweetalert2";
-import _ from "lodash";
+import { omit } from "lodash";
 
 const imgStyle = {
   "max-width": "150px",
@@ -180,7 +180,7 @@ class Cart extends Component {
   componentDidUpdate() {
     let { items } = this.state;
     items = items.map((item) =>
-      _.omit(item, ["description", "price", "name", "url"])
+      omit(item, ["description", "price", "name", "url"])
     );
     const JSONString = JSON.stringify(items);
     sessionStorage.setItem("carts", JSONString);

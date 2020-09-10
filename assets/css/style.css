@@ -3549,3 +3549,26 @@ h6 {
 .section-top2 span {
   color: #ffb606;
 }
+
+.banner {
+  display: none;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+.banner-container {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 175px;
+  max-width: 450px;
+  padding: 1.5rem;
+  margin: auto auto;
+}
+.banner-container .button {
+  display: flex;
+  align-content: flex-end;
+  justify-content: flex-end;
+}
