@@ -96,3 +96,39 @@
 .weather .future .day p {
   font-size: 28px;
 }
+
+@media screen and (max-width:480px) {
+  #weather {
+    bottom: 0;
+    right: 0;
+    height: fit-content;
+  }
+
+  #weather::after {
+    font-size: 1.5rem;
+    top: .75rem;
+  }
+
+  .weather .current {
+    background-position-x: 110px;
+    background-position-y: center;
+    background-size: contain;
+    min-width: 100vw;
+  }
+
+  .weather .future {
+    display: none;
+  }
+
+  .weather .current .info {
+    font-size: .5rem;
+  }
+
+  .weather .current .info .city {
+    display: none;
+  }
+
+  .weather .current .info .suggestion {
+    font-size: 1rem;
+  }
+}
