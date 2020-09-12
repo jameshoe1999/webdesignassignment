@@ -1,7 +1,7 @@
-if ('serviceWorker' in navigator) {
+if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
     navigator.serviceWorker
-      .register('./sw.js')
+      .register("./sw.js")
       .then(function (registration) {
         console.log("Service Worker Registered", registration.scope);
       })
@@ -11,36 +11,54 @@ if ('serviceWorker' in navigator) {
   })
 }
 
+if ("Notification" in window && "PushManager" in window) {
+  askPermission();
+}
+
+async function askPermission() {
+  const permissionResult = await new Promise(function (resolve, reject) {
+    const permissionResult = Notification.requestPermission(function (result) {
+      resolve(result);
+    });
+    if (permissionResult) {
+      return permissionResult.then(resolve, reject);
+    }
+  });
+  if (permissionResult !== "granted") {
+    alert("You may update the notification permission anytime beside the URI link.");
+  }
+}
+
 let deferredPrompt;
 const promptDialog = document.querySelector("#prompt");
 const installBtn = document.querySelector("#addToHomeScreen");
 
 window.addEventListener("beforeinstallprompt", e => {
-	// Prevent Chrome 67 and earlier from automatically showing the prompt
-	e.preventDefault();
-	// Stash the event so it can be triggered later.
-	deferredPrompt = e;
-	// Update UI to notify the user they can add to home screen
-	promptDialog.style.display = "block";
-  
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+  // Update UI to notify the user they can add to home screen
+  promptDialog.style.display = "block";
+
   document.querySelector("#noThanks")
     .addEventListener("click", function (event) {
       promptDialog.style.display = "none";
     });
 
-	installBtn.addEventListener("click", function (event) {
-		// hide our user interface that shows our A2HS button
-		promptDialog.style.display = "none";
-		// Show the prompt
-		deferredPrompt.prompt();
-		// Wait for the user to respond to the prompt
-		deferredPrompt.userChoice.then(choiceResult => {
-			if (choiceResult.outcome === "accepted") {
-				console.log("User accepted the A2HS prompt");
-			} else {
-				console.log("User dismissed the A2HS prompt");
-			}
-			deferredPrompt = null;
-		});
-	});
+  installBtn.addEventListener("click", function (event) {
+    // hide our user interface that shows our A2HS button
+    promptDialog.style.display = "none";
+    // Show the prompt
+    deferredPrompt.prompt();
+    // Wait for the user to respond to the prompt
+    deferredPrompt.userChoice.then(choiceResult => {
+      if (choiceResult.outcome === "accepted") {
+        console.log("User accepted the A2HS prompt");
+      } else {
+        console.log("User dismissed the A2HS prompt");
+      }
+      deferredPrompt = null;
+    });
+  });
 });

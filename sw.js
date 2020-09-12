@@ -1,5 +1,5 @@
 // Set a name for the current cache
-var cacheName = "offline-cache-v1.01";
+var cacheName = "offline-cache-v1.1";
 
 // Default files to always cache
 var CACHE_FILES = [
@@ -38,7 +38,7 @@ var CACHE_FILES = [
   "assets/images/cups/Two-and-Five-Juice-cup.png",
   "assets/images/cups/Two-and-Five-Juice-hero.png",
   "assets/images/cups/Two-and-Five-Juice-ingredient.png",
-  "assets/images/logo/logo(1).PNG",
+  "assets/images/logo/logo.png",
   "assets/images/menu-bg(1).jpg",
   "assets/images/table-bg(1).jpg",
   "assets/images/food-bg.png",

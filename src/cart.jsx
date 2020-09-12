@@ -84,9 +84,9 @@ class Cart extends Component {
             src={url || "assets/images/cups/all-berry-bang-cup.png"}
             alt={`${name} image`}
           />
-          {name}
+          <span className="text-center">{name}</span>
         </td>
-        <td>{description}</td>
+        <td className="align-middle">{description}</td>
         <td>MYR {price.toFixed(2)}</td>
         <td>
           <input
@@ -124,7 +124,7 @@ class Cart extends Component {
 
   renderHeader() {
     return (
-      <thead>
+      <thead className="thead-dark">
         <th>Juices</th>
         <th>Description</th>
         <th>Price</th>

@@ -19,7 +19,7 @@ if (!window.indexedDB) {
   );
 }
 
-const request = window.indexedDB.open("funfood");
+const request = window.indexedDB.open("funfood", 2);
 
 request.onerror = function (event) {
   console.log("No database found.");
@@ -28,39 +28,46 @@ request.onerror = function (event) {
 const data = [
   {
     id: 1,
-    name: "orange juice",
-    description: "Freshly brewed orange juice",
-    price: 18.0,
-    url: "assets/images/cups/all-berry-bang-cup.png",
+    name: "ALL BERRY BANG",
+    description: "Apple Juice, Blueberries, Ice, Raspberries, Strawberries & Strawberry Yoghurt",
+    price: 14.50,
+    url: "assets/images/cups/all-berry-bang-ingredient.png",
   },
   {
     id: 2,
-    name: "apple juice",
-    description: "Freshly brewed apple juice",
-    price: 19.5,
-    url: "assets/images/cups/Banana-Buzz-cup.png",
+    name: "5 A DAY JUICE",
+    description: "Beetroot, Vita Booster, Carrot, Celery, Ice & Freshly Squeezed Orange",
+    price: 9.50,
+    url: "assets/images/cups/Two-and-Five-Juice-ingredient.png",
   },
   {
     id: 3,
-    name: "pineapple juice",
-    description: "Freshly brewed pineapple juice",
-    price: 28.0,
-    url: "assets/images/cups/Berry-Crush-cup.png",
+    name: "BANANA BUZZ",
+    description: "Banana, Honey, Ice, Low Fat Milk & Vanilla Yoghurt",
+    price: 12.50,
+    url: "assets/images/cups/Banana-Buzz-ingredient.png",
   },
   {
     id: 4,
-    name: "grape juice",
-    description: "Freshly brewed grape juice",
-    price: 38.0,
-    url: "assets/images/cups/Energiser-Blend-cup.png",
+    name: "BERRY CRUSH",
+    description: "Blueberries, Strawberries, Apple Juice, Raspberries, Sorbet & Ice",
+    price: 14.50,
+    url: "assets/images/cups/Berry-Crush-ingredient.png",
   },
   {
     id: 5,
-    name: "strawberry juice",
-    description: "Freshly brewed strawberry juice",
-    price: 18.0,
-    url: "assets/images/cups/all-berry-bang-cup.png",
+    name: "ENERGISER JUICE",
+    description: "Banana, Energiser Booster, Freshly Squeezed Orange, Ice & Strawberries",
+    price: 8.50,
+    url: "assets/images/cups/Energiser-Blend-ingredient.png",
   },
+  {
+    id: 6,
+    name: "IMMUNITY JUICE",
+    description: "Freshly Juiced Watermelon, Freshly Squeezed Orange, Ice, Immunity Booster & Strawberries",
+    price: 11.50,
+    url: "assets/images/cups/Immunity-Juice-ingredient.png",
+  }
 ];
 
 request.onsuccess = function () {
