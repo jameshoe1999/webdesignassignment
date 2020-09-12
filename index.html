@@ -251,7 +251,7 @@
         <div class="col-lg-12">
           <h2>Natural ingredients and tasty juice</h2>
           <h4 class="mt-4">some trendy and popular juices offered</h4>
-          <a href="" class="template-btn template-btn2 mt-4">reservation</a>
+          <a href="#checkTime" class="template-btn template-btn2 mt-4">Check out when is our business hour now</a>
         </div>
       </div>
     </div>
@@ -406,51 +406,38 @@
   </section>
   <!-- Update Area End -->
 
-  <!-- Table Area Starts -->
-  <section class="table-area section-padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="section-top2 text-center">
-            <h3>Book <span>your</span> table</h3>
-            <p>
-              <i>Beast kind form divide night above let moveth bearing
-                darkness.</i>
-            </p>
+  <!-- Find Out Opening Hours Area Starts -->
+  <form id="checkTime">
+    <section class="table-area section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="section-top2 text-center">
+              <h3>Are <span>We</span> Open?!</h3>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-10 offset-lg-1">
-          <form action="#">
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-              </div>
-              <input type="text" id="datepicker" />
-            </div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
-              </div>
-              <input type="text" id="datepicker2" />
-            </div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fa fa-user-o"></i></span>
-              </div>
-              <input type="text" />
-            </div>
-            <div class="table-btn text-center">
-              <a href="#" class="d-block template-btn template-btn2 mt-4 mx-auto" style="width:fit-content">book a
-                table</a>
-            </div>
-          </form>
+
+        <div class="container-fluid">
+          <input type="date" id="haha" class="form-control"
+            style="margin:auto; width: 300px; background: yellow; color: black; font-weight: bold; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"
+            required>
+        </div>
+        <br>
+        <div class="container-fluid">
+          <input type="time" id="time" class="form-control" style="margin:auto; width: 200px; background: yellow; color: black;"
+            required>
+        </div>
+        <br>
+        <br>
+        <div style="text-align:center" class="container-fluid">
+          <input type="submit" value="find out now" id="submit1"
+            style="width: 150px; height: 50px; font-weight: bold; background: royalblue; color: black; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
         </div>
       </div>
-    </div>
-  </section>
-  <!-- Table Area End -->
+    </section>
+  </form>
+  <!-- Find Out Opening Time Area End -->
 
   <!-- Footer Area Starts -->
   <footer class="footer-area">
@@ -571,6 +558,42 @@
   <script src="assets/js/weather.js"></script>
   <script src="assets/js/weather_bundle.js"></script>
   <script src="assets/js/index_bundle.js"></script>
+  <script>
+
+    document.getElementById("submit1").addEventListener("click", findtime);
+
+    function findtime() {
+      event.preventDefault();
+
+      var date = document.getElementById("haha").value;
+      var formatDate = new Date(date);
+      var day = formatDate.getDay();
+
+      var time = document.getElementById("time").value;
+      time = time.split(":");
+      var hour = parseInt(time[0]);
+
+      if (day == 1) {
+        alert(" Sorry We Are Closed, Please Visit Us Next Time ! ");
+      }
+      else if (day == 2 || day == 3 || day == 4 || day == 5) {
+        if (hour >= 10 && hour <= 24) {
+          alert("We Are Open !");
+        }
+        else {
+          alert(" Sorry We Are Closed, Please Visit Us Next Time ! ");
+        }
+      }
+      else if (day == 6 || day == 0) {
+        if (hour >= 8 && hour <= 23) {
+          alert("We Are Open !");
+        }
+        else {
+          alert(" Sorry We Are Closed, Please Visit Us Next Time ! ");
+        }
+      }
+    }
+  </script>
 </body>
 
 </html>
