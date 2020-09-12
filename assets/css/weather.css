@@ -110,9 +110,9 @@
   }
 
   .weather .current {
-    background-position-x: 110px;
+    background-position-x: 120px;
     background-position-y: center;
-    background-size: contain;
+    background-size: cover;
     min-width: 100vw;
   }
 
