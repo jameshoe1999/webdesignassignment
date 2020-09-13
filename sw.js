@@ -39,6 +39,8 @@ var CACHE_FILES = [
   "assets/images/cups/Two-and-Five-Juice-hero.png",
   "assets/images/cups/Two-and-Five-Juice-ingredient.png",
   "assets/images/logo/logo.png",
+  "assets/images/about-bg.jpg",
+  "assets/images/banner-bg.jpg",
   "assets/images/menu-bg(1).jpg",
   "assets/images/table-bg(1).jpg",
   "assets/images/food-bg.png",

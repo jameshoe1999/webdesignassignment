@@ -3,12 +3,14 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    index_bundle: "./src/main.js",
+    cart_bundle: "./src/main.js",
+    index_bundle: "./src/addToCart.js",
     weather_bundle: "./src/weather.jsx"
   },
   output: {
     path: path.join(__dirname, "/assets/js"),
     filename: "[name].js",
+    library: '[name]'
   },
   devServer: {
     inline: true,
