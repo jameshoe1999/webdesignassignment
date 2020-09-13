@@ -19,10 +19,10 @@ if (!window.indexedDB) {
   );
 }
 
-const request = window.indexedDB.open("funfood", 2);
+const request = window.indexedDB.open("funfood");
 
 request.onerror = function (event) {
-  console.log("No database found.");
+  console.log("No database found, error: ", event);
 };
 
 const data = [
@@ -77,13 +77,6 @@ request.onsuccess = function () {
 request.onupgradeneeded = function (event) {
   const db = event.target.result;
   console.log("loading...");
-  if (event.oldVersion <= 2) {
-    try {
-      db.deleteObjectStore("juices");
-    } catch (err) {
-      console.log("Database already deleted", err);
-    }
-  }
   const objectStore = db.createObjectStore("juices", { keyPath: "id" });
 
   objectStore.transaction.oncomplete = function () {

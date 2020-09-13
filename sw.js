@@ -1,25 +1,26 @@
 // Set a name for the current cache
-var cacheName = "offline-cache-v1.09";
+var cacheName = "offline-cache-v1.09.1";
 
 // Default files to always cache
 var CACHE_FILES = [
   "/",
-  "./menu.html",
+  "./menu.html?v=1.1",
   "assets/css/animate-3.7.0.css",
   "assets/css/font-awesome-4.7.0.min.css",
   "assets/css/bootstrap-4.1.3.min.css",
   "assets/css/owl-carousel.min.css",
   "assets/css/jquery.datetimepicker.min.css",
-  "assets/css/style.css",
+  "assets/css/style.css?v=1.1",
   "assets/js/vendor/jquery-2.2.4.min.js",
   "assets/js/vendor/bootstrap-4.1.3.min.js",
   "assets/js/vendor/wow.min.js",
   "assets/js/vendor/owl-carousel.min.js",
   "assets/js/vendor/jquery.datetimepicker.full.min.js",
   "assets/js/vendor/jquery.nice-select.min.js",
-  "assets/js/app.js",
-  "assets/js/main.js",
-  "assets/js/cart_bundle.js",
+  "assets/js/app.js?v=1.1",
+  "assets/js/main.js?v=1.1",
+  "assets/js/cart_bundle.js?v=1.1",
+  "assets/js/index_bundle.js?v=1.1",
   "assets/images/cups/all-berry-bang-cup.png",
   "assets/images/cups/all-berry-bang-hero.png",
   "assets/images/cups/all-berry-bang-ingredient.png",
