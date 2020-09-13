@@ -12,21 +12,14 @@ if ("serviceWorker" in navigator) {
 }
 
 if ("Notification" in window && "PushManager" in window) {
-  askPermission();
-}
-
-async function askPermission() {
-  const permissionResult = await new Promise(function (resolve, reject) {
-    const permissionResult = Notification.requestPermission(function (result) {
-      resolve(result);
-    });
-    if (permissionResult) {
-      return permissionResult.then(resolve, reject);
+  Notification.requestPermission().then(function(result) {
+    if (result === "granted" && localStorage.getItem("asked") === null) {
+      localStorage.setItem("asked", 0);
+      return new Notification("Thanks for subscribing to our notifications!", {
+        body: "You will receive reminder when you create order with us!"
+      });
     }
   });
-  if (permissionResult !== "granted") {
-    alert("You may update the notification permission anytime beside the URI link.");
-  }
 }
 
 let deferredPrompt;
