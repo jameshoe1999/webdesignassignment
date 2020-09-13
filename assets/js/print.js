@@ -1,10 +1,29 @@
 function cartCheckout(event) {
-  console.log("prevented");
   event.preventDefault();
-  const name = document.getElementById("firstName").value
-  const feature = "width=750,height=1500,menubar=no,toolbar=no,location=no,status=no"
+  const name = document.getElementById("firstName").value;
+  const feature =
+    "width=750,height=1500,menubar=no,toolbar=no,location=no,status=no";
   const newWindow = window.open("", "Your Order", feature);
-  const content = document.getElementById("checkout-cart").innerHTML;
+  const content = document.getElementById("checkout-table").innerHTML;
+  var userInfo = "";
+  document
+    .querySelectorAll(
+      "#checkout-bill input, #checkout-bill select, #checkout-bill textarea"
+    )
+    .forEach((input) => {
+      if (
+        input.value &&
+        input.value !== "on" &&
+        input.name !== "paymentMethod"
+      ) {
+        const name = document.querySelector(`label[for=${input.id}]`).innerText;
+        userInfo += `
+      <div class="form-group">
+        <label for="${input.id}">${name}</label>
+        <p id=${input.id}>${input.value}</p>
+      </div>`;
+      }
+    });
   newWindow.document.write(`
   <html>
     <head>
@@ -24,21 +43,28 @@ function cartCheckout(event) {
     </head>
     <body>
       <div id="content">${content}</div>
+      <div id="userInfo">${userInfo}</div>
       <script>
         const row = document.querySelector("#content .row");
-        row.classList = "container";
-        row.firstElementChild.classList = "";
-        row.firstElementChild.nextElementSibling.classList = "";
-        window.print();
+        document.querySelectorAll("input, select, textarea").forEach((input) => {
+          const p = document.createElement("p");
+          p.innerText = input.value;
+          input.after(p);
+          input.remove();
+        });
+        setTimeout(window.print, 500);
       </script>
     </body>
   </html>`);
   if (window.Notification && Notification.permission !== "denied") {
     new Notification(`Thanks ${name}, for ordering juice with us!`, {
-      body: "Print your order now and keep this order note for future reference!",
-      tag: "T&CJuice"
+      body:
+        "Print your order now and keep this order note for future reference!",
+      tag: "T&CJuice",
     });
   } else {
-    alert("Print your order now and keep this order note for future reference!");
+    alert(
+      "Print your order now and keep this order note for future reference!"
+    );
   }
 }
