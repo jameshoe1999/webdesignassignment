@@ -1,5 +1,5 @@
 // Set a name for the current cache
-var cacheName = "offline-cache-v1.1";
+var cacheName = "offline-cache-v1.09";
 
 // Default files to always cache
 var CACHE_FILES = [
@@ -10,12 +10,14 @@ var CACHE_FILES = [
   "assets/css/bootstrap-4.1.3.min.css",
   "assets/css/owl-carousel.min.css",
   "assets/css/jquery.datetimepicker.min.css",
+  "assets/css/style.css",
   "assets/js/vendor/jquery-2.2.4.min.js",
   "assets/js/vendor/bootstrap-4.1.3.min.js",
   "assets/js/vendor/wow.min.js",
   "assets/js/vendor/owl-carousel.min.js",
   "assets/js/vendor/jquery.datetimepicker.full.min.js",
   "assets/js/vendor/jquery.nice-select.min.js",
+  "assets/js/app.js",
   "assets/js/main.js",
   "assets/js/cart_bundle.js",
   "assets/images/cups/all-berry-bang-cup.png",
@@ -47,8 +49,8 @@ var CACHE_FILES = [
   "assets/fonts/fontawesome-webfont.woff2?v=4.7.0",
   "assets/fonts/fontawesome-webfont.woff?v=4.7.0",
   "assets/fonts/fontawesome-webfont.ttf?v=4.7.0",
-]
-
+  "assets/images/logo/favicon.svg",
+];
 
 self.addEventListener("install", function (e) {
   console.log("[ServiceWorker] Installed");
@@ -63,35 +65,34 @@ self.addEventListener("install", function (e) {
   ); // end e.waitUntil
 });
 
-
 self.addEventListener("activate", function (e) {
   console.log("[ServiceWorker] Activated");
   e.waitUntil(
     // Get all the cache keys (cacheName)
     caches.keys().then(function (cacheNames) {
-      return Promise.all(cacheNames.map(function (thisCacheName) {
-        // If a cached item is saved under a previous cacheName
-        if (thisCacheName !== cacheName) {
-          // Delete that cached file
-          return caches.delete(thisCacheName);
-        }
-      }));
+      return Promise.all(
+        cacheNames.map(function (thisCacheName) {
+          // If a cached item is saved under a previous cacheName
+          if (thisCacheName !== cacheName) {
+            // Delete that cached file
+            return caches.delete(thisCacheName);
+          }
+        })
+      );
     })
   ); // end e.waitUntil
 });
-
 
 self.addEventListener("fetch", function (e) {
   // e.respondWidth Responds to the fetch event
   e.respondWith(
     // Check in cache for the request being made
-    caches.match(e.request)
-      .then(function (response) {
-        // If the request is in the cache
-        if (response) {
-          return response; // Return the cached version
-        }
-        return fetch(e.request);
-      }) // end caches.match(e.request)
+    caches.match(e.request).then(function (response) {
+      // If the request is in the cache
+      if (response) {
+        return response; // Return the cached version
+      }
+      return fetch(e.request);
+    }) // end caches.match(e.request)
   ); // end e.respondWith
 });
